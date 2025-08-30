@@ -2,41 +2,130 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Personal Webpage | UNC Charlotte</title>
+  <title>Hector Villalpando's Personal Webpage</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    :root { --green:#006633; --text:#333; }
-    * { box-sizing:border-box; }
-    body { margin:0; background:#fff; color:var(--text); font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; }
-    .container { max-width:950px; margin:0 auto; padding:0 16px; }
-    header { border-bottom:1px solid var(--green); padding:20px 0 10px; text-align:center; }
-    main { padding:24px 0; text-align:center; }
-    a { color:var(--green); text-decoration:none; }
-    a:hover { text-decoration:underline; }
+    :root {
+      --green: #006633;
+      --text: #333;
+      --gray: #f5f5f5;
+      --link: #006633;
+      --link-hover: #004d26;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      background-color: #fff;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px 10px;
+      border-bottom: 2px solid var(--green);
+    }
+
+    header img {
+      max-width: 140px;
+      height: auto;
+      display: block;
+      margin: 0 auto 10px;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      color: var(--green);
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    main {
+      max-width: 850px;
+      margin: 25px auto;
+      padding: 0 20px;
+      text-align: left;
+    }
+
+    main h2 {
+      color: var(--green);
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    main p {
+      margin-bottom: 16px;
+      font-size: 1rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+      margin-bottom: 20px;
+    }
+
+    nav a {
+      color: var(--link);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: var(--link-hover);
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: var(--gray);
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9rem;
+      margin-top: 30px;
+      border-top: 1px solid #ddd;
+    }
   </style>
   <link rel="icon" href="https://www.charlotte.edu/sites/www.charlotte.edu/themes/custom/unccharlotte_theme/favicon.ico">
   <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <header>
-    <div class="container">
-      <a href="https://www.charlotte.edu/" aria-label="UNC Charlotte home">
-        <img src="https://www.charlotte.edu/sites/www.charlotte.edu/files/2023-05/UNC-Charlotte-Logo.png"
-     alt="UNC Charlotte logo"
-     width="150"
-     height="150">
-    </div>
+    <img src="https://www.charlotte.edu/sites/www.charlotte.edu/files/2023-05/UNC-Charlotte-Logo.png" alt="UNC Charlotte logo">
+    <h1>Hector Villalpando</h1>
+    <p>Student</p>
   </header>
 
-  <main class="container">
-    <h1>Hector Villalpando</h1>
-    <h2>Personal Home Page</h2>
-    <p>Your personal webpage has been created.</p>
-    <p><a href="itis3135/">Click this to go to ITIS 3135 Site</a></p>
+  <main>
+    <h2>About Me</h2>
+
+    
+    <p>HMy name is Hector Villalpando, and I am a student at the University of North Carolina at Charlotte pursuing a degree in Computer Science. I have a strong interest in Gaming and Sports. My goal is to grow both academically and professionally while working on exciting projects during my time at UNC Charlotte. </p>
+    <p>This website serves as my personal home page and a central hub for my coursework, projects, and professional links. Here, you’ll find access to my ITIS 3135 site, UNC Charlotte student page, GitHub portfolio, and LinkedIn. I created this page to showcase my work, track my progress, and make it easier to connect with others.</p>
+
+    <nav>
+      <a href="https://www.charlotte.edu/">UNC Charlotte</a>
+      <a href="itis3135/">ITIS 3135 Site</a>
+      <a href="https://webpages.charlotte.edu/hvillalp/">UNCC Web</a>
+      <a href="https://github.com/hectorv3695">GitHub</a>
+      <a href="https://www.linkedin.com/in/hector-villalpando-sisniega-831409299/">LinkedIn</a>
+      <a href="https://hectorv3695.github.io/">GitHub.io</a>
+    </nav>
   </main>
 
-  footer class="container">
-    <p>&copy; 2025 Hector Villalpando</p>
+  <footer>
+    &copy; 2025 Hector Villalpando
   </footer>
 </body>
 </html>
