@@ -37,9 +37,7 @@
       border-bottom:4px solid var(--steel);
       text-align:center;
     }
-    header .brand{
-      display:flex; flex-direction:column; align-items:center; gap:10px;
-    }
+    .brand{display:flex; flex-direction:column; align-items:center; gap:10px;}
     header img{
       width:120px; height:120px;
       border-radius:50%;
@@ -47,16 +45,8 @@
       object-fit:cover;
       box-shadow:0 6px 18px rgba(0,0,0,.25);
     }
-    header h1{
-      margin:0;
-      font-size:2rem;
-      letter-spacing:.3px;
-    }
-    header .tagline{
-      margin-top:6px;
-      color:#f4f6f8;
-      font-weight:600;
-    }
+    h1{margin:0; font-size:2rem; letter-spacing:.3px;}
+    .tagline{margin-top:6px; color:#f4f6f8; font-weight:600;}
 
     main{padding:28px 0;}
     h2{
@@ -69,6 +59,7 @@
       margin:10px auto 22px;
       max-width:820px;
       font-size:1.05rem;
+      text-align:center;
     }
     .card{
       background:#ffffff;
@@ -79,34 +70,26 @@
       max-width:880px;
       margin:0 auto 20px;
     }
+    .subhead{margin:0 0 12px; color:#223147; font-size:1.15rem;}
 
-    ul.features{
-      list-style:none;
-      padding-left:0;
-      margin:8px 0 0;
-    }
+    ul.features{list-style:none; padding-left:0; margin:8px 0 0;}
     ul.features li{
-      position:relative;
-      padding-left:28px;
-      margin:10px 0;
+      position:relative; padding-left:28px; margin:10px 0;
     }
     ul.features li::before{
-      content:"▹";
-      color:var(--slate);
-      font-weight:700;
-      position:absolute;
-      left:0; top:0;
-      line-height:1.2;
+      content:"▹"; color:var(--slate); font-weight:700;
+      position:absolute; left:0; top:0; line-height:1.2;
     }
 
+    .closing{margin:0 0 16px;}
     address{
       font-style:normal;
       background:#ffffff;
       border:1px solid #dde2e6;
       border-radius:var(--radius);
       padding:16px 18px;
-      max-width:540px;
-      margin:14px auto 0;
+      max-width:540px;   /* aligns with paragraph left edge */
+      margin:14px 0 0;   /* left-aligned with the paragraph */
       box-shadow:0 4px 10px rgba(13,27,42,.06);
     }
     address a{color:#0D1B2A; text-decoration:none; border-bottom:1px dashed var(--steel)}
@@ -119,16 +102,6 @@
       border-top:4px solid var(--steel);
       background:linear-gradient(180deg, #f7f9fb, #eef2f6);
     }
-    .foot-menu{
-      display:flex; gap:14px; justify-content:center; flex-wrap:wrap;
-      margin-bottom:10px;
-    }
-    .foot-menu a{
-      color:#223147; text-decoration:none; font-weight:600;
-      border-bottom:1px solid transparent;
-    }
-    .foot-menu a:hover{border-bottom-color:#223147}
-    .center {text-align:center}
   </style>
 </head>
 <body>
@@ -143,46 +116,47 @@
   </header>
 
   <main class="container">
-  <h2>Villalpando Enterprises Services</h2>
+    <h2>Services</h2>
 
-  <p class="lead center">
-    Villalpando Enterprises is a web design and development firm based in Charlotte, NC.
-    I focus on creating clean and modern websites that are easy to use and look good on all devices.
-    My goal is to make websites that are simple to manage and effective for anyone who needs them.
-  </p>
-
-  <section class="card">
-    <h3 style="margin:0 0 12px; color:#223147;">Services Provided:</h3>
-    <ul class="features">
-      <li>Responsive Web Design</li>
-      <li>Custom HTML &amp; CSS Development</li>
-      <li>Branding &amp; Logo Design</li>
-      <li>UX/UI Consulting</li>
-      <li>Mobile-Friendly Sites</li>
-      <li>E-commerce Setup</li>
-    </ul>
-  </section>
-
-  <section class="card">
-    <p style="margin:0 0 16px;">
-      I want to help clients build websites they can be proud of.
-      Every project is important, and I always aim to deliver work that is professional, reliable, and ready to use.
-      If you are interested in working with Villalpando Enterprises, please reach out using the contact information below.
+    <p class="lead">
+      Villalpando Enterprises is a web design and development firm based in Charlotte, NC.
+      I focus on creating clean and modern websites that are easy to use and look good on all devices.
+      My goal is to make websites that are simple to manage and effective for anyone who needs them.
+      Some of the services I provide include responsive web design, custom HTML and CSS development,
+      branding and logo design, UX and UI consulting, mobile friendly sites, and e commerce setup.
     </p>
-    <address style="margin:0; max-width:none;">
-      <strong>Contact</strong><br>
-      <a href="mailto:villalpandoenterprises@gmail.com">villalpandoenterprises@gmail.com</a><br>
-      <a href="tel:+17041234567">(704) 123-4567</a><br>
-      4167 Lollipop Ln, Charlotte, NC 28207
-    </address>
-  </section>
-</main>
 
+    <section class="card">
+      <h3 class="subhead">Services Provided</h3>
+      <ul class="features">
+        <li>Responsive Web Design</li>
+        <li>Custom HTML &amp; CSS Development</li>
+        <li>Branding &amp; Logo Design</li>
+        <li>UX/UI Consulting</li>
+        <li>Mobile-Friendly Sites</li>
+        <li>E-commerce Setup</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h3 class="subhead">Contact Information</h3>
+      <p class="closing">
+        I want to help clients build websites they can be proud of.
+        Every project is important, and I always aim to deliver work that is professional, reliable, and ready to use.
+        If you are interested in working with Villalpando Enterprises, please reach out using the contact information below.
+      </p>
+      <address>
+        <a href="mailto:villalpandoenterprises@gmail.com">villalpandoenterprises@gmail.com</a><br>
+        <a href="tel:+17041234567">(704) 123-4567</a><br>
+        4167 Lollipop Ln, Charlotte, NC 28207
+      </address>
+    </section>
+  </main>
 
   <footer>
-  <div class="container">
-    <div>&copy; 2025 Villalpando Enterprises — Designs that make you shine</div>
-  </div>
-</footer>
+    <div class="container">
+      <div>&copy; 2025 Villalpando Enterprises — Designs that make you shine</div>
+    </div>
+  </footer>
 </body>
 </html>
