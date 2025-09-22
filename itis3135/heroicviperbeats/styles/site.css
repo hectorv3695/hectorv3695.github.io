@@ -1,0 +1,67 @@
+:root{
+  --bg:#0f1533;       
+  --panel:#1a2147;
+  --text:#e9ecf5;
+  --muted:#b8c1d9;
+  --accent:#8fb3ff;   
+  --card:#141a3b;
+  --card-bd:#2a3366;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+
+.wrap{max-width:980px; margin:0 auto; padding:0 20px}
+
+.site-header{
+  background:var(--panel);
+  border-bottom:1px solid #2a2f57;
+}
+.brand{display:flex; align-items:center; gap:16px; text-decoration:none; color:inherit}
+.brand img{width:64px; height:64px; object-fit:contain; border-radius:8px}
+.brand-text h1{font-size:1.5rem; margin:0}
+.tagline{margin:.15rem 0 0; color:var(--muted)}
+
+.site-nav{margin-left:auto; display:flex; gap:18px; flex-wrap:wrap}
+.site-nav a{
+  color:var(--muted);
+  text-decoration:none;
+  padding:14px 0;
+}
+.site-nav a[aria-current="page"]{color:var(--text); font-weight:600}
+.site-nav a:hover{color:var(--accent)}
+
+main.wrap{padding:28px 20px}
+h2{font-size:1.35rem; margin:0 0 .75rem}
+p{margin:.4rem 0 1rem}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
+  margin-top:18px;
+}
+.card{
+  background:var(--card);
+  border:1px solid var(--card-bd);
+  border-radius:12px;
+  padding:14px 16px;
+}
+.card h3{margin:.1rem 0 .35rem; font-size:1.05rem}
+
+
+.site-footer{
+  margin-top:36px;
+  background:var(--panel);
+  border-top:1px solid #2a2f57;
+  text-align:center;
+  padding:18px 0 24px;
+}
+.site-footer p{margin:.2rem 0}
+.foot-tagline{color:var(--muted)}
