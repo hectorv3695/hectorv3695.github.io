@@ -81,3 +81,11 @@ a:hover {
   color: var(--link-hover);
   text-decoration: underline;
 }
+
+.secondary-nav {
+  margin-top: 8px;
+  font-size: 0.95rem;
+}
+
+header { padding-bottom: 18px; }
+
