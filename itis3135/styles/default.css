@@ -46,15 +46,12 @@ header p{color:var(--muted); margin:0 0 4px}
 
 main{ 
   max-width:860px; 
-  width:90%; 
-  margin:0 auto; 
-  padding:0 18px; 
+  width:90%;           
+  margin:0 auto;        
+  padding:0;            
 }
 h2{ 
-  font-size:1.6rem; 
-  color:var(--green); 
-  text-align:center; 
-  margin:0 0 16px;
+  font-size:1.6rem; color:var(--green); text-align:center; margin:0 0 16px;
 }
 p{ margin:0 0 14px; }
 
@@ -74,21 +71,12 @@ footer{
 footer .links{
   display:flex; gap:14px; flex-wrap:wrap; justify-content:center; margin-bottom:8px;
 }
-footer div {
-  text-align: center; 
-}
+footer div { text-align: center; }
 footer a{ color:var(--link); text-decoration:none; }
 footer a:hover{ color:var(--link-hover); text-decoration:underline; }
 
-a {
-  color: var(--link);
-  text-decoration: none;
-}
-
-a:hover {
-  color: var(--link-hover);
-  text-decoration: underline;
-}
+a { color: var(--link); text-decoration: none; }
+a:hover { color: var(--link-hover); text-decoration: underline; }
 
 .secondary-nav {
   margin-top: 10px;
@@ -111,7 +99,7 @@ a:hover {
 }
 
 @media screen and (max-width:600px){
-  main{ width:96%; padding:0 12px; }
+  main{ width:96%; }  
   .h1-small{ font-size:1.3rem; }
   .h2-small{ font-size:1.1rem; }
 }
