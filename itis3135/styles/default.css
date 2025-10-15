@@ -44,12 +44,12 @@ header p{color:var(--muted); margin:0 0 4px}
 }
 .nav a:hover{ color:var(--link-hover); text-decoration:underline }
 
-main{ 
-  max-width:860px; 
-  width:90%;           
-  margin:0 auto;        
-  padding:0;            
+main { 
+  max-width: var(--max); 
+  margin: 0 auto; 
+  padding: 0 18px; 
 }
+
 h2{ 
   font-size:1.6rem; color:var(--green); text-align:center; margin:0 0 16px;
 }
