@@ -94,7 +94,7 @@
       z-index:-1;
     }
 
-    section[hidden]{display:none!important}
+    section[hidden]{display:none}
     section{
       background:var(--panel);
       border:3px solid var(--ring);
@@ -144,24 +144,25 @@
     }
 
     table{
-      width:100%;
-      border-collapse:collapse;
-      background:#fff;
-      border:2px solid #ffe8a6;
-      border-radius:12px;
-      overflow:hidden;
+        border-collapse:collapse;
+        background:#fff;
+        outline:2px solid #ffe8a6;   
+        border-radius:12px;
+        overflow:hidden;
+        box-sizing:border-box;        
     }
     thead th{
-      background:#ffeaa8;
-      color:#2b1c00;
-      text-align:left;
-      padding:10px;
-      font-weight:900;
-      border-bottom:2px solid #ffe186;
+        background:#ffeaa8;
+        color:#2b1c00;
+        text-align:left;
+        padding:10px;
+        font-weight:900;
+        outline:1px solid #ffe186;
+        outline-offset:-1px;
     }
     tbody td{
-      padding:10px;
-      border-bottom:1px solid #ffefc6;
+        padding:10px;
+        box-shadow: inset 0 -1px 0 #ffefc6;
     }
     tbody tr:last-child td{border-bottom:none}
 
@@ -433,21 +434,29 @@
   <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
 
   <script>
-    (function(){
-      const navLinks=document.querySelectorAll('.primary-nav a[data-target]');
-      const sections=Array.from(document.querySelectorAll('main section'));
-      function show(id){
-        sections.forEach(s=>s.hidden=s.id!==id);
-        navLinks.forEach(a=>a.setAttribute('aria-current',a.dataset.target===id?'page':'false'));
-        history.replaceState(null,'','#'+id);
-      }
-      navLinks.forEach(a=>a.addEventListener('click',e=>{
-        e.preventDefault();
-        show(a.dataset.target);
-      }));
-      const initial=location.hash?.replace('#','');
-      if(initial&&sections.some(s=>s.id===initial)){show(initial);}else{show('what');}
-    })();
-  </script>
+(function () {
+  var navLinks = document.querySelectorAll('.primary-nav a[data-target]');
+  var sections = Array.prototype.slice.call(document.querySelectorAll('main section'));
+
+  function show(id) {
+    sections.forEach(function (s) { s.hidden = (s.id !== id); });
+    navLinks.forEach(function (a) {
+      a.setAttribute('aria-current', a.getAttribute('data-target') === id ? 'page' : 'false');
+    });
+    if (history.replaceState) { history.replaceState(null, '', '#' + id); }
+  }
+
+  navLinks.forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      show(a.getAttribute('data-target'));
+    });
+  });
+
+  var initial = location.hash ? location.hash.replace('#', '') : '';
+  var exists = sections.some(function (s) { return s.id === initial; });
+  show(exists ? initial : 'what');
+})();
+</script>
 </body>
 </html>
