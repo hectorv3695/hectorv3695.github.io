@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Collecting Pokémon Cards - Hobby Site</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    :root{
+      --bg:#fff7cc;
+      --sky:#bfe2ff;
+      --panel:#ffffff;
+      --ink:#1a1a1a;
+      --muted:#5a5a5a;
+      --poke-red:#ff3b30;
+      --poke-blue:#2f77ff;
+      --ring:#ffe8a6;
+      --max:1100px;
+      --radius:16px;
+      --gap:18px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family:"Segoe UI",Roboto,Arial,sans-serif;
+      background: var(--bg); 
+      color:var(--ink);
+      line-height:1.6;
+    }
+
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+
+    header{
+      background:repeating-linear-gradient(45deg,#fff3aa 0 14px,#fff0a0 14px 28px);
+      border-bottom:4px solid var(--poke-red);
+      padding:18px 0 10px;
+    }
+    .title{
+      margin:0;
+      text-align:center;
+      font-weight:900;
+      letter-spacing:.5px;
+      font-size:clamp(1.8rem,2.4vw + .8rem,2.6rem);
+      color:#111;
+      text-shadow:2px 2px 0 #ffd86b,-2px -2px 0 #fff;
+    }
+    .tagline{
+      text-align:center;
+      margin:4px 0 0;
+      color:#333;
+      font-weight:700;
+    }
+
+    .primary-nav{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      justify-content:center;
+      align-items:center;
+      padding:10px 0 4px;
+      margin-top:10px;
+      border-top:2px dashed #ffd86b;
+    }
+    .primary-nav a{
+      background:#fff9d9;
+      border:2px solid var(--poke-blue);
+      color:#0d43a5;
+      font-weight:800;
+      text-decoration:none;
+      border-radius:999px;
+      padding:8px 14px;
+      box-shadow:0 3px 0 #0d43a5;
+      transition:transform .05s ease-in-out;
+    }
+    .primary-nav a:hover{transform:translateY(-1px)}
+    .primary-nav a[aria-current="page"]{
+      background:#e6f2ff;
+      border-color:#0d43a5;
+    }
+    .divider{color:#ffb703;font-weight:900}
+
+    main{
+      padding:22px 0;
+      background:#fffdf5; 
+      position:relative;
+      z-index:1;
+    }
+    main::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:#fffdf5;
+      z-index:-1;
+    }
+
+    section[hidden]{display:none!important}
+    section{
+      background:var(--panel);
+      border:3px solid var(--ring);
+      border-radius:var(--radius);
+      padding:18px;
+      margin:0 0 20px;
+      box-shadow:0 10px 0 #ffd86b,0 16px 22px rgba(0,0,0,.08);
+    }
+    .section-title{
+      margin:0 0 10px;
+      font-size:clamp(1.2rem,1.6vw + .6rem,1.6rem);
+      color:#c41c14;
+      text-shadow:1px 1px 0 #fff0d2;
+    }
+
+    .grid{display:grid;gap:var(--gap)}
+    @media(min-width:860px){
+      .cols-2{grid-template-columns:1.15fr 1fr}
+    }
+
+    figure{
+      margin:0;
+      background:#fffaf0;
+      border:2px dashed #ffd86b;
+      border-radius:14px;
+      padding:12px;
+    }
+    figure img{
+      width:100%;
+      height:auto;
+      display:block;
+      border-radius:12px;
+      object-fit:cover;
+    }
+    figcaption{margin-top:8px;color:#333;font-weight:800}
+
+    .card{
+      background:#fffef6;
+      border:2px solid #ffe8a6;
+      border-radius:14px;
+      padding:12px 14px;
+    }
+    .card-title{
+      margin:.1rem 0 .35rem;
+      font-size:1.05rem;
+      color:#0d43a5;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      background:#fff;
+      border:2px solid #ffe8a6;
+      border-radius:12px;
+      overflow:hidden;
+    }
+    thead th{
+      background:#ffeaa8;
+      color:#2b1c00;
+      text-align:left;
+      padding:10px;
+      font-weight:900;
+      border-bottom:2px solid #ffe186;
+    }
+    tbody td{
+      padding:10px;
+      border-bottom:1px solid #ffefc6;
+    }
+    tbody tr:last-child td{border-bottom:none}
+
+    .callout{
+      background:#e7fff1;
+      border:2px solid #b9f4d2;
+      color:#074722;
+      border-radius:14px;
+      padding:12px 14px;
+    }
+    .btn{
+      display:inline-block;
+      background:var(--poke-blue);
+      color:#fff;
+      text-decoration:none;
+      font-weight:900;
+      border-radius:12px;
+      padding:10px 14px;
+      border:2px solid #0d43a5;
+      box-shadow:0 3px 0 #0d43a5;
+    }
+    .btn:hover{filter:brightness(1.05)}
+
+    footer{
+      margin-top:22px;
+      padding:16px 0 26px;
+      text-align:center;
+      color:var(--muted);
+    }
+    .firm a{color:var(--poke-red);text-decoration:none;font-weight:900}
+    .firm a:hover{text-decoration:underline}
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap">
+      <h1 class="title">Collecting Pokémon Cards</h1>
+      <p class="tagline">Catch cool art, build sets, and trade smart.</p>
+      <nav class="primary-nav" aria-label="Section navigation">
+        <a href="#what" data-target="what" aria-current="page">What</a>
+        <span class="divider">⚡</span>
+        <a href="#who" data-target="who">Who</a>
+        <span class="divider">⚡</span>
+        <a href="#when" data-target="when">When</a>
+        <span class="divider">⚡</span>
+        <a href="#where" data-target="where">Where</a>
+        <span class="divider">⚡</span>
+        <a href="#how" data-target="how">How</a>
+        <span class="divider">⚡</span>
+        <a href="#why" data-target="why">Why</a>
+        <span class="divider">⚡</span>
+        <a href="#ai" data-target="ai">AI</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap" id="content">
+    <section id="what">
+      <h2 class="section-title">What: The Hobby</h2>
+      <div class="grid cols-2">
+        <div class="grid" style="gap:12px">
+          <p>Pokémon card collecting is about the artwork, the nostalgia, and the chase. You can collect sets, favorite Pokémon, or special rarities like Full Art, EX, VMAX, SAR, and vintage holos.</p>
+          <div class="card">
+            <h3 class="card-title">Common ways to collect</h3>
+            <ul>
+              <li>Master sets for a specific expansion</li>
+              <li>Favorite Pokémon or illustration styles</li>
+              <li>Rarities, promos, and limited runs</li>
+            </ul>
+          </div>
+        </div>
+        <figure>
+          <img src="images/what-pokemon.jpg" alt="Colorful spread of Pokémon cards on a table">
+          <figcaption>Modern sets are full of bold, cartoony art.</figcaption>
+        </figure>
+      </div>
+
+      <h3 class="card-title" style="margin-top:14px">Card rarity quick view</h3>
+      <table aria-label="Rarity table">
+        <thead>
+          <tr><th>Symbol</th><th>Type</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>●</td><td>Common</td><td>Great for deck building and bulk trades</td></tr>
+          <tr><td>◆</td><td>Uncommon</td><td>Support and evolution pieces</td></tr>
+          <tr><td>★</td><td>Rare / Holo</td><td>Shiny foil, popular with collectors</td></tr>
+          <tr><td>★EX/VMAX</td><td>Ultra / Special</td><td>Full art, alt art, and showcase cards</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="who" hidden>
+      <h2 class="section-title">Who: About Me</h2>
+      <div class="grid cols-2">
+        <div class="grid" style="gap:12px">
+            <p>Hi, I’m Hector. I started collecting almost 10 years ago. When I was young, I would beg my parents to buy me a pack every time we ran errands. Now I collect because I enjoy the artwork and the social aspect of trading. I take care of my cards by sleeving and topping any that I really like.</p>          
+            <div class="card">
+            <h3 class="card-title">My current focus</h3>
+            <ul>
+              <li>Favorite Pokémon: Charizard, Rayquaza, Gengar</li>
+              <li>Goal: finish a small modern set this term</li>
+              <li>Rule: buy singles for chase cards</li>
+            </ul>
+          </div>
+        </div>
+        <figure>
+          <img src="images/who-pokemon.jpg" alt="A binder page with neatly sleeved cards">
+          <figcaption>Binders keep things tidy and easy to show.</figcaption>
+        </figure>
+      </div>
+      <p class="callout"><strong>Tip:</strong> penny sleeves and top loaders protect big pulls without spending much.</p>
+    </section>
+
+    <section id="when" hidden>
+      <h2 class="section-title">When: Best Times</h2>
+      <div class="grid cols-2">
+        <div class="grid" style="gap:12px">
+          <p>New expansions drop often. Watch release calendars for set launches, special tins, and promos at local shops. Your local shops often have certain dates when they drop, so I'd say do some research on that aswell.</p>
+          <table aria-label="Weekly collecting plan">
+            <thead><tr><th>Day</th><th>Plan</th></tr></thead>
+            <tbody>
+              <tr><td>Wed</td><td>Target restocks every Wednesday so I check</td></tr>
+              <tr><td>Thu</td><td>Walmart restocks on Thursdays</td></tr>
+              <tr><td>Sat</td><td>Sometimes go to card shows and buy cards or trade</td></tr>
+              <tr><td>Sun</td><td>Log values of any new cards</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <figure>
+          <img src="images/when-pokemon.jpg" alt="Calendar of upcoming release dates">
+          <figcaption>Release days.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="where" hidden>
+      <h2 class="section-title">Where: Good Places to Find Cards</h2>
+      <div class="grid cols-2">
+        <div class="grid" style="gap:12px">
+          <div class="card">
+            <p>Support local shops when you can. You meet collectors, learn sets, and sometimes get trade nights. Local shops can be very expensive though, so make sure to do your research.</p>
+            <h3 class="card-title">Hunting Spots</h3>
+            <ul>
+              <li>Local game stores for singles and trades</li>
+              <li>Retail restocks for sealed product</li>
+              <li>Online marketplaces for specific cards</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 class="card-title">Local Spots in Charlotte</h3>
+            <ul>
+              <li><strong>Heroes Aren’t Hard to Find</strong>: Great shop for Pokémon singles, comics, and local events.</li>
+              <li><strong>Get Some Game</strong>: Known for friendly trading nights and restocks.</li>
+              <li><strong>The Mighty Meeple</strong>: Hosts TCG tournaments and Pokémon community events.</li>
+              <li><strong>Spandex City Comics</strong>: Fun local stop for packs, trades, and collectibles.</li>
+              <li><strong>Random Fandom</strong>: Smaller store with unique Japanese cards and sleeves.</li>
+            </ul>
+          </div>
+        </div>
+        <figure>
+          <img src="images/where-pokemon.jpg" alt="Colorful local game store display with booster packs and binders">
+          <figcaption>Shops are great for learning and trading.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="how" hidden>
+      <h2 class="section-title">How: Building Your Pokémon Collection</h2>
+      <div class="grid cols-2">
+        <div class="grid" style="gap:12px">
+          <div class="card">
+            <p>Collecting Pokémon cards takes patience and planning. You can collect by generation, Pokémon type, or even focus on rare promo cards. Here’s a quick way to organize your goals below.</p>
+            <form class="card" style="display:flex; flex-direction:column; gap:10px;">
+              <label>
+                Your Favorite Pokémon:
+                <input type="text" name="pokemon" placeholder="e.g., Charizard">
+              </label>
+              <label>
+                What’s Your Focus?
+                <select name="focus">
+                  <option value="generation">Generation Sets</option>
+                  <option value="type">Pokémon Type</option>
+                  <option value="rarity">Rarity / Holo Collection</option>
+                </select>
+              </label>
+              <label>
+                Add a Note:
+                <textarea name="note" placeholder="Your collection goals or favorite sets..."></textarea>
+              </label>
+              <button type="submit">Save My Collection Goals</button>
+            </form>
+          </div>
+        </div>
+        <figure>
+          <img src="images/how-pokemon.jpg" alt="Organized Pokémon card binders on a table">
+          <figcaption>Every collection starts with a single pack.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="why" hidden>
+      <h2 class="section-title">Why: Reasons to Collect</h2>
+      <div class="grid cols-2">
+        <div class="grid" style="gap:12px">
+          <p>It is fun, social, and creative. You learn sets, artists, and rarities while meeting people who like the same things. I also live of the adrenaline when I pack a good card. Cards can go for a lot of money, so I know I can sell them and make profit.</p>
+          <div class="card">
+            <h3 class="card-title">Benefits</h3>
+            <ul>
+              <li>Art appreciation and nostalgia</li>
+              <li>Organizing and goal tracking</li>
+              <li>Trading and community</li>
+            </ul>
+          </div>
+        </div>
+        <figure>
+          <img src="images/why-pokemon.jpg" alt="Friends trading cute cartoon cards at a small table">
+          <figcaption>Trading makes the hobby better.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="ai" hidden>
+      <h2 class="section-title">AI Prompts Used</h2>
+      <p>This table shows how AI helped me during this website.</p>
+      <table aria-label="AI Prompts Table">
+        <thead>
+          <tr>
+            <th>Prompt</th>
+            <th>Response</th>
+            <th>Model</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>"I'm building a Pokemon Hobby site, what colors can I use?"</td>
+            <td>Produced a palette using reds, yellows, and blues inspired by Pokémon branding. Pikachu yellow (#FFEB3B), Pokéball red (#FF3B30), Sky blue (#2F77FF), Warm white (#FFF9D9)</td>
+            <td>ChatGPT (GPT-5)</td>
+          </tr>
+          <tr>
+            <td>"How could I organize my website so that it looks clean?"</td>
+            <td>Start with consistent spacing and structure — use a clear grid layout (like two or three columns) and keep margins equal on all sides. Group similar content with cards or boxes so the eye can easily scan. Use no more than 2–3 colors and 1–2 fonts to avoid clutter. Keep sections balanced by giving each one a heading and clear purpose. Add white space between elements and limit each section to about 3–5 main components.</td>
+            <td>ChatGPT (GPT-5)</td>
+          </tr>
+          <tr>
+            <td>"I want to add a form into my page, how can I do that?"</td>
+            <td>Put a form where you want it inside your section. Use a label for every input and connect it with for and id. Pick clear input types like text, email, and select. Add required where it makes sense. Finish with a submit button.</td>
+            <td>ChatGPT (GPT-5)</td>
+          </tr>
+          <tr>
+            <td>"My page looks kind of empty (screenshot added) what more can I add to make it look more full?"</td>
+            <td>You can add more pictures, small decorations, or fun facts to make the page feel complete. A few extra colors, icons, or short sections about your favorite cards can make it look fuller and more interesting.</td>
+            <td>ChatGPT (GPT-5)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <p class="firm">
+      Page designed by
+      <a href="https://hectorv3695.github.io/itis3135/villalpandoenterprises.com/">Villalpando Enterprises</a> © 2025
+    </p>
+    <div id="accumulus-validator"></div>
+  </footer>
+
+  <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+
+  <script>
+    (function(){
+      const navLinks=document.querySelectorAll('.primary-nav a[data-target]');
+      const sections=Array.from(document.querySelectorAll('main section'));
+      function show(id){
+        sections.forEach(s=>s.hidden=s.id!==id);
+        navLinks.forEach(a=>a.setAttribute('aria-current',a.dataset.target===id?'page':'false'));
+        history.replaceState(null,'','#'+id);
+      }
+      navLinks.forEach(a=>a.addEventListener('click',e=>{
+        e.preventDefault();
+        show(a.dataset.target);
+      }));
+      const initial=location.hash?.replace('#','');
+      if(initial&&sections.some(s=>s.id===initial)){show(initial);}else{show('what');}
+    })();
+  </script>
+</body>
+</html>
