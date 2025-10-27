@@ -47,7 +47,7 @@ header p{color:var(--muted); margin:0 0 4px}
 main { 
   max-width: var(--max); 
   margin: 0 auto; 
-  padding: 0 18px; 
+  padding: 30px 18px; 
 }
 
 h2{ 
@@ -67,6 +67,7 @@ footer{
   font-size:.95rem;
   margin-top:28px;
   padding:14px 0;
+  text-align:center;
 }
 footer .links{
   display:flex; gap:14px; flex-wrap:wrap; justify-content:center; margin-bottom:8px;
@@ -103,3 +104,42 @@ a:hover { color: var(--link-hover); text-decoration: underline; }
   .h1-small{ font-size:1.3rem; }
   .h2-small{ font-size:1.1rem; }
 }
+
+fieldset{
+  margin:26px 0;
+  padding:20px;
+  border-radius:var(--radius);
+}
+label{
+  display:block;
+  margin:12px 0;
+}
+input[type="text"],
+input[type="url"],
+input[type="date"],
+textarea{
+  width:100%;
+  padding:10px 12px;
+  border:1px solid #bbb;
+  border-radius:8px;
+  margin-top:6px;
+}
+button{
+  margin:10px 8px 0 0;
+  padding:10px 16px;
+  border-radius:8px;
+  font-size:1rem;
+}
+
+.course-row,
+.courseRow{
+  margin-bottom:14px;
+  padding:12px;
+  border:1px solid #ddd;
+  border-radius:10px;
+}
+
+#resultView{ margin-top:28px; }
+#resultHtml{ margin-bottom:20px; }
+
+
