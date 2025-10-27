@@ -88,7 +88,7 @@
     var ackDate = F("ackDate");
     var adj = F("mascotAdj");
     var animal = F("mascotAnimal");
-    var divider = F("divider");
+    var divider = F("divider") || "||";
     var picUrl = F("pictureUrl");
     var caption = F("pictureCaption");
     var statement = F("personalStatement");
@@ -105,14 +105,8 @@
     var links = [F("link1"), F("link2"), F("link3"), F("link4"), F("link5")];
 
     for (var i = 0; i < links.length; i++) {
-      if (!links[i]) {
-        alert("Please provide all 5 links.");
-        return;
-      }
-      try { new URL(links[i]); } catch (err) {
-        alert("One or more links are not valid URLs.");
-        return;
-      }
+      if (!links[i]) { alert("Please provide all 5 links."); return; }
+      try { new URL(links[i]); } catch (err) { alert("One or more links are not valid URLs."); return; }
     }
 
     var courseRows = coursesDiv.children;
@@ -150,7 +144,8 @@
     }
 
     resultHtml.innerHTML =
-      "<h2>Introduction Form</h2>" +
+      "<p><strong>" + displayName + "</strong> " + divider + " <strong>ITIS 3135</strong></p>" +
+      "<p><strong>Mascot:</strong> " + adj + " " + animal + "</p>" +
       '<figure><img src="' + picSrc + '" alt="' + displayName + '" width="240"><figcaption>' + caption + "</figcaption></figure>" +
       "<p>" + statement + "</p>" +
       "<ul>" +
@@ -168,8 +163,7 @@
       "<blockquote><p>" + quote + "</p><footer>— " + author + "</footer></blockquote>" +
       "<h3>Links</h3>" +
       "<ul>" + linkHtml + "</ul>" +
-      "<p><em>" + ackStmt + "</em> (" + ackDate + ")</p>" +
-      "<p><strong>" + adj + " " + animal + "</strong> " + divider + " <strong>" + displayName + "</strong></p>";
+      "<p><em>" + ackStmt + "</em> (" + ackDate + ")</p>";
 
     formView.style.display = "none";
     resultView.style.display = "block";

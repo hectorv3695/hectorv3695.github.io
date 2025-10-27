@@ -162,3 +162,24 @@ button{
   white-space:nowrap;
   border:0;
 }
+
+#introForm label { display:block; width:100%; }
+
+#introForm input[type="text"],
+#introForm input[type="url"],
+#introForm input[type="date"],
+#introForm textarea,
+#courses .courseRow input[type="text"] {
+  display:block;
+  width:100%;       
+  max-width:100%;
+  box-sizing:border-box;
+  padding:10px 12px;
+  border:1px solid #bbb;
+  border-radius:8px;
+  margin-top:6px;
+  font:inherit;
+  color:inherit;
+}
+
+#introForm textarea { min-height:110px; resize:vertical; }
