@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Introduction Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles/default.css">
+  <script src="scripts/HTMLInclude.js" defer></script>
+  <script src="scripts/introduction.js" defer></script>
+</head>
+<body>
+  <div data-include="components/header.html"></div>
+
+  <main>
+    <h2>Introduction Form</h2>
+    <h3>Please submit the form below.</h3>
+
+    <section id="formView">
+      <form id="introForm" novalidate>
+        <fieldset>
+          <legend>Identity</legend>
+          <label>First Name* <input type="text" name="firstName" required value="Hector"></label>
+          <label>Middle Name <input type="text" name="middleName" placeholder="optional"></label>
+          <label>Nickname <input type="text" name="nickName" placeholder="optional"></label>
+          <label>Last Name* <input type="text" name="lastName" required value="Villalpando"></label>
+          <label>Acknowledgment Statement* <input type="text" name="ackStmt" required value="I, Hector Villalpando, have read the course rules."></label>
+          <label>Acknowledgment Date* <input type="date" name="ackDate" required value="2025-08-31"></label>
+          <label>Mascot Adjective* <input type="text" name="mascotAdj" required value="Heroic"></label>
+          <label>Mascot Animal* <input type="text" name="mascotAnimal" required value="Viper"></label>
+          <label>Divider* <input type="text" name="divider" required maxlength="3" value="||"></label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Picture</legend>
+          <label>Default Image URL* <input type="url" name="pictureUrl" required value="images/hector-intro.jpg"></label>
+          <label>Upload New Image <input type="file" name="pictureFile" accept="image/*"></label>
+          <label>Caption* <input type="text" name="pictureCaption" required value="Hi, I’m Hector."></label>
+        </fieldset>
+
+        <fieldset>
+          <legend>About You</legend>
+          <label>Personal Statement* <textarea name="personalStatement" required>I’m a Computer Science student at UNC Charlotte who enjoys gaming and soccer.</textarea></label>
+          <label>Personal Background* <textarea name="bgPersonal" required>I was born and raised in Charlotte, NC.</textarea></label>
+          <label>Professional Background* <textarea name="bgProfessional" required>VESL Esports Coach.</textarea></label>
+          <label>Academic Background* <textarea name="bgAcademic" required>Computer Science major.</textarea></label>
+          <label>Background in this Subject* <textarea name="bgSubject" required>Learned HTML in high school with freeCodeCamp.</textarea></label>
+          <label>Primary Computer Platform* <input type="text" name="platform" required value="macOS"></label>
+          <label>Funny Thing <input type="text" name="funny" placeholder="optional" value="I play the piano."></label>
+          <label>Something to Share <textarea name="share" placeholder="optional"></textarea></label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Courses</legend>
+          <div id="courses"></div>
+          <button type="button" id="addCourseBtn">+ Add Course</button>
+        </fieldset>
+
+        <fieldset>
+          <legend>Quote</legend>
+          <label>Quote* <input type="text" name="quote" required value="Less noise. More music."></label>
+          <label>Author* <input type="text" name="quoteAuthor" required value="Unknown"></label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Links (5)*</legend>
+          <input type="url" name="link1" required value="https://www.linkedin.com/in/hector-villalpando-sisniega-831409299/">
+          <input type="url" name="link2" required value="https://github.com/hectorv3695">
+          <input type="url" name="link3" required value="https://webpages.charlotte.edu/hvillalp/">
+          <input type="url" name="link4" required value="https://hectorv3695.github.io/">
+          <input type="url" name="link5" required value="https://www.freecodecamp.org/hectorv3695">
+        </fieldset>
+
+        <button type="submit">Submit</button>
+        <button type="reset" id="resetBtn">Reset</button>
+        <button type="button" id="clearBtn">Clear</button>
+      </form>
+    </section>
+
+    <section id="resultView" style="display:none;">
+      <div id="resultHtml"></div>
+      <button type="button" id="startOverBtn">Reset and Build Another</button>
+    </section>
+  </main>
+
+  <div data-include="components/footer.html"></div>
+</body>
+</html>
