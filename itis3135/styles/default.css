@@ -183,3 +183,9 @@ button{
 }
 
 #introForm textarea { min-height:110px; resize:vertical; }
+
+blockquote {
+  border: none;
+  margin: 1em 0;
+  padding: 0;
+}

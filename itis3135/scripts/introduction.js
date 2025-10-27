@@ -154,13 +154,13 @@
         "<li><strong>Academic Background:</strong> " + bg3 + "</li>" +
         "<li><strong>Background in this Subject:</strong> " + bg4 + "</li>" +
         "<li><strong>Primary Computer Platform:</strong> " + platform + "</li>" +
-        "<li><strong>Funny Thing:</strong> " + (funny || "—") + "</li>" +
-        "<li><strong>Something to Share:</strong> " + (share || "—") + "</li>" +
+        "<li><strong>Funny Thing:</strong> " + (funny || "-") + "</li>" +
+        "<li><strong>Something to Share:</strong> " + (share || "-") + "</li>" +
       "</ul>" +
       "<h3>Courses I'm Taking</h3>" +
       "<ul>" + courseHtml + "</ul>" +
       "<h3>Quote</h3>" +
-      "<blockquote><p>" + quote + "</p><footer>— " + author + "</footer></blockquote>" +
+      "<blockquote><p>" + quote + "</p><p>- " + author + "</p></blockquote>" +
       "<h3>Links</h3>" +
       "<ul>" + linkHtml + "</ul>" +
       "<p><em>" + ackStmt + "</em> (" + ackDate + ")</p>";
