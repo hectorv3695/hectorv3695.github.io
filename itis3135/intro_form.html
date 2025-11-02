@@ -5,16 +5,26 @@
   <title>Introduction Form</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles/default.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css"
+  />
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"
+    defer
+  ></script>
   <script src="scripts/HTMLInclude.js" defer></script>
   <script src="scripts/introduction.js" defer></script>
+  <script src="scripts/generate_json.js" defer></script>
+  <script src="scripts/generate_html.js" defer></script>
   <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
   <div data-include="components/header.html"></div>
 
   <main class="intro-form">
     <h2>Introduction Form</h2>
-
     <section id="formView" aria-label="Introduction builder form">
       <h2 class="sr-only">Introduction Form - Input Section</h2>
       <h3>Please submit the form below.</h3>
@@ -22,27 +32,21 @@
       <form id="introForm" novalidate>
         <fieldset>
           <legend>Identity</legend>
-
           <label>First Name*
             <input type="text" name="firstName" required value="Hector">
           </label>
-
           <label>Middle Name
             <input type="text" name="middleName" placeholder="optional">
           </label>
-
           <label>Nickname
             <input type="text" name="nickName" placeholder="optional">
           </label>
-
           <label>Last Name*
             <input type="text" name="lastName" required value="Villalpando">
           </label>
-
           <label>Acknowledgment Statement*
             <input type="text" name="ackStmt" required value="I, Hector Villalpando, have read the course rules.">
           </label>
-
           <label for="ackDate">Acknowledgment Date*</label>
           <input id="ackDate"
                  type="text"
@@ -51,31 +55,25 @@
                  value="2025-10-27"
                  pattern="\d{4}-\d{2}-\d{2}"
                  placeholder="YYYY-MM-DD">
-
           <label>Mascot Adjective*
             <input type="text" name="mascotAdj" required value="Heroic">
           </label>
-
           <label>Mascot Animal*
             <input type="text" name="mascotAnimal" required value="Viper">
           </label>
-
           <label for="divider">Divider*</label>
           <input id="divider" type="text" name="divider" required maxlength="3" value="||">
         </fieldset>
 
         <fieldset>
           <legend>Picture</legend>
-
           <input type="hidden"
                  id="pictureUrl"
                  name="pictureUrl"
                  value="https://webpages.charlotte.edu/hvillalp/itis3135/images/hector-intro.png">
-
           <label>Upload New Image
             <input type="file" name="pictureFile" accept="image/*">
           </label>
-
           <label>Caption*
             <input type="text" name="pictureCaption" required value="Hi, I’m Hector.">
           </label>
@@ -83,35 +81,27 @@
 
         <fieldset>
           <legend>About You</legend>
-
           <label>Personal Statement*
             <textarea name="personalStatement" required>I’m a Computer Science student at UNC Charlotte who enjoys gaming and soccer.</textarea>
           </label>
-
           <label>Personal Background*
             <textarea name="bgPersonal" required>I was born and raised in Charlotte, NC.</textarea>
           </label>
-
           <label>Professional Background*
             <textarea name="bgProfessional" required>VESL Esports Coach.</textarea>
           </label>
-
           <label>Academic Background*
             <textarea name="bgAcademic" required>Computer Science major.</textarea>
           </label>
-
           <label>Background in this Subject*
             <textarea name="bgSubject" required>Learned HTML in high school with freeCodeCamp.</textarea>
           </label>
-
           <label>Primary Computer Platform*
             <input type="text" name="platform" required value="macOS">
           </label>
-
           <label>Funny Thing
             <input type="text" name="funny" placeholder="optional">
           </label>
-
           <label>Something to Share
             <textarea name="share" placeholder="optional"></textarea>
           </label>
@@ -145,6 +135,8 @@
         <button type="submit">Submit</button>
         <button type="reset" id="resetBtn">Reset</button>
         <button type="button" id="clearBtn">Clear</button>
+        <button type="button" id="generateJSONBtn">Generate JSON</button>
+        <button type="button" id="generateHTMLBtn">Generate HTML</button>
       </form>
     </section>
 
