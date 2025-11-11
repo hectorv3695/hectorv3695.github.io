@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Learn R - Data Frames</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles/project.css">
+  <script src="scripts/HTMLInclude.js" defer></script>
+  <script src="scripts/main.js" defer></script>
+</head>
+<body>
+  <div data-include="components/header.html"></div>
+  <main>
+    <h2>Data Frames</h2>
+    <section>
+      <h3>What is a data frame?</h3>
+      <p>A data frame is like a table: rows are records, columns are variables.</p>
+      <p>Data frames are the main way R stores real-world data.</p>
+    </section>
+    <section>
+      <h3>Creating a data frame</h3>
+      <pre><code>people <- data.frame(name = c("Ben", "Sara", "Leo"), age = c(21, 22, 20), major = c("Stats", "CS", "Math"))</code></pre>
+      <p>You can view the data with <code>head(people)</code> or <code>View(people)</code> inside RStudio.</p>
+    </section>
+
+    <!--
+      Future Development Notes:
+      - Add AJAX call to load sample JSON and show it as a table
+      - Add jQuery UI styling to make the table collapsible
+      - Add example of read.csv 
+    -->
+  </main>
+
+  <div data-include="components/footer.html"></div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Learn R - Vectors</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles/project.css">
+  <script src="scripts/HTMLInclude.js" defer></script>
+  <script src="scripts/main.js" defer></script>
+</head>
+<body>
+  <div data-include="components/header.html"></div>
+
+  <main>
+    <h2>Vectors in R</h2>
+    <img src="images/vectors-r.png" alt="R Vectors Example" class="page-image">
+    <section>
+      <h3>What is a vector?</h3>
+      <p>A vector is an ordered collection of values of the same type.</p>
+      <p>Create one using <code>c()</code> (combine):</p>
+      <pre><code>nums <- c(10, 20, 30, 40) words <- c("a", "b", "c")</code></pre>
+    </section>
+
+    <section>
+      <h3>Accessing elements</h3>
+      <p>You can access items by position (index):</p>
+      <pre><code>nums[1]   # 10
+nums[3]   # 30</code></pre>
+    </section>
+
+    <!--
+      Future Development Notes:
+      - Add JS mini tool to let user enter a value and "append" it to a sample vector
+      - Add explanation of vectorized math: nums * 2
+      - Add image of vector diagram if needed
+    -->
+  </main>
+
+  <div data-include="components/footer.html"></div>
+</body>
+</html>

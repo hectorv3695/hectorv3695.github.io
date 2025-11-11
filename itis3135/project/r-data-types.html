@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Learn R - Data Types</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles/project.css">
+  <script src="scripts/HTMLInclude.js" defer></script>
+</head>
+<body>
+  <div data-include="components/header.html"></div>
+
+  <main>
+    <h2>Data Types in R</h2>
+    <img src="images/datatypes-r.png" alt="R Data Types Overview" class="page-image">
+    <section>
+      <h3>Common types</h3>
+      <p>R has several basic data types:</p>
+      <ul>
+        <li><strong>numeric</strong> – 3.14, 100, -5</li>
+        <li><strong>character</strong> – "hello", "R", "stats"</li>
+        <li><strong>logical</strong> – TRUE, FALSE</li>
+      </ul>
+      <p>You can check a value’s type using <code>class(x)</code>.</p>
+    </section>
+    <section>
+      <h3>Example</h3>
+      <pre><code>x <- 42 class(x)       # "numeric" name <- "Ben" class(name)    # "character"</code></pre>
+    </section>
+
+    <!--
+      Future Development Notes:
+      - Add table comparing atomic types vs complex types
+      - Add interactive "guess the type" 
+      - Add image (type diagram) from images/data-types.png
+    -->
+  </main>
+
+  <div data-include="components/footer.html"></div>
+</body>
+</html>
