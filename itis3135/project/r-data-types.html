@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles/project.css">
   <script src="scripts/HTMLInclude.js" defer></script>
+  <script src="scripts/main.js" defer></script>
 </head>
 <body>
   <div data-include="components/header.html"></div>
@@ -34,12 +35,108 @@ name &lt;- "Ben"
 class(name)    # "character"</code></pre>
     </section>
 
-    <!--
-      Future Development Notes:
-      - Add table comparing atomic types vs complex types
-      - Add interactive "guess the type"
-      - Add diagram for factors / lists
-    -->
+    <section>
+  <h3>Atomic vs Complex Types</h3>
+  <p>
+    In R, many values are built from basic atomic types
+    (like numeric or character). These values can then be organized into 
+    more complex structures such as vectors, lists, or data frames.
+  </p>
+
+  <table class="type-table">
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Type</th>
+        <th>Examples</th>
+        <th>How it is used</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Atomic</td>
+        <td>numeric</td>
+        <td><code>3.14</code>, <code>100</code>, <code>-5</code></td>
+        <td>Store numbers for calculations.</td>
+      </tr>
+      <tr>
+        <td>Atomic</td>
+        <td>character</td>
+        <td><code>"hello"</code>, <code>"R"</code></td>
+        <td>Store text labels, names, or categories.</td>
+      </tr>
+      <tr>
+        <td>Atomic</td>
+        <td>logical</td>
+        <td><code>TRUE</code>, <code>FALSE</code></td>
+        <td>Store yes/no decisions or test results.</td>
+      </tr>
+      <tr>
+        <td>Complex</td>
+        <td>vector</td>
+        <td><code>c(1, 2, 3)</code></td>
+        <td>A sequence of values of the same atomic type.</td>
+      </tr>
+      <tr>
+        <td>Complex</td>
+        <td>list</td>
+        <td><code>list(1, "a", TRUE)</code></td>
+        <td>Collection of values that can be different types.</td>
+      </tr>
+      <tr>
+        <td>Complex</td>
+        <td>data frame</td>
+        <td><code>data.frame(name, age)</code></td>
+        <td>Table of columns (like a spreadsheet) used for data analysis.</td>
+      </tr>
+    </tbody>
+  </table>
+    </section>
+
+    <section>
+  <h3>Guess the Data Type</h3>
+  <p>Use what you learned on this page to guess the correct type:</p>
+
+  <form id="type-quiz-form">
+
+    <div class="quiz-question">
+      <p>1. What is the type of this value?<br><code>x &lt;- 3.14</code></p>
+      <select name="t1">
+        <option value="">-- Choose a type --</option>
+        <option value="numeric">numeric</option>
+        <option value="character">character</option>
+        <option value="logical">logical</option>
+      </select>
+      <p class="quiz-result" id="t1-result"></p>
+    </div>
+
+    <div class="quiz-question">
+      <p>2. What is the type of this value?<br><code>name &lt;- "Ben"</code></p>
+      <select name="t2">
+        <option value="">-- Choose a type --</option>
+        <option value="numeric">numeric</option>
+        <option value="character">character</option>
+        <option value="logical">logical</option>
+      </select>
+      <p class="quiz-result" id="t2-result"></p>
+    </div>
+
+    <div class="quiz-question">
+      <p>3. What is the type of this value?<br><code>flag &lt;- TRUE</code></p>
+      <select name="t3">
+        <option value="">-- Choose a type --</option>
+        <option value="numeric">numeric</option>
+        <option value="character">character</option>
+        <option value="logical">logical</option>
+      </select>
+      <p class="quiz-result" id="t3-result"></p>
+    </div>
+
+  </form>
+
+  <button type="button" id="type-quiz-button">Check Answers</button>
+  <p id="type-quiz-summary" class="center-text"></p>
+    </section>
   </main>
 
   <div data-include="components/footer.html"></div>

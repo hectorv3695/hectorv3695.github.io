@@ -89,3 +89,47 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  var typeButton = document.getElementById("type-quiz-button");
+  var summary = document.getElementById("type-quiz-summary");
+
+  if (typeButton) {
+    typeButton.addEventListener("click", function () {
+
+      var answers = {
+        t1: "numeric",   
+        t2: "character", 
+        t3: "logical"    
+      };
+
+      var correctCount = 0;
+
+      for (var key in answers) {
+        if (!answers.hasOwnProperty(key)) {
+          continue;
+        }
+
+        var select = document.querySelector('select[name="' + key + '"]');
+        var result = document.getElementById(key + "-result");
+
+        if (!select || !result) {
+          continue;
+        }
+
+        if (!select.value) {
+          result.textContent = "Please choose an answer.";
+        } else if (select.value === answers[key]) {
+          result.textContent = "Correct!";
+          correctCount = correctCount + 1;
+        } else {
+          result.textContent = "Incorrect. Review the list of common types above.";
+        }
+      }
+
+      if (summary) {
+        summary.textContent = "You got " + correctCount + " out of 3 correct.";
+      }
+    });
+  }
+});
