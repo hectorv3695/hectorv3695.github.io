@@ -305,6 +305,15 @@ footer {
   box-shadow: 0 2px 10px rgba(0,0,0,0.15);
 }
 
+.video-box iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  border: 0;
+}
+
+
 
 
 
