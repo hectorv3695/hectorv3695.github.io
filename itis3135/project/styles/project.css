@@ -338,6 +338,45 @@ footer {
   background: #f7f9fc;
 }
 
+.plot-label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+#plot-select {
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid #cfd3d6;
+  font-size: 1rem;
+  max-width: 260px;
+}
+
+.plot-output {
+  margin-top: 20px;
+  padding: 18px 16px;
+  background: var(--r-surface);
+  border-radius: 12px;
+  border: 1px solid #e0e7ee;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+}
+
+.plot-title {
+  margin-top: 10px;
+  margin-bottom: 6px;
+  color: var(--r-blue-dark);
+}
+
+.plot-image {
+  cursor: pointer;              
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.plot-image:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
 
 
 

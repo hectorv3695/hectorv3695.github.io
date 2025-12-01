@@ -247,3 +247,133 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  var select = document.getElementById("plot-select");
+  var output = document.getElementById("plot-output");
+  var hint = document.getElementById("plot-hint");
+  var title = document.getElementById("plot-title");
+  var desc = document.getElementById("plot-description");
+  var image = document.getElementById("plot-image");
+  var code = document.getElementById("plot-code");
+
+  if (!select || !output || !title || !desc || !image || !code) {
+    return;
+  }
+
+  var plots = {
+    "r-scatter": {
+      title: "Scatter Plot (base R)",
+      description: "This base R scatter plot uses plot() to show the relationship between two numeric vectors.",
+      img: "images/r-scatter.png",
+      code:
+"x <- c(1, 2, 3, 4, 5)\n" +
+"y <- c(3, 4, 6, 7, 9)\n\n" +
+"plot(x, y,\n" +
+"     main = 'Simple Scatter Plot',\n" +
+"     xlab = 'X values',\n" +
+"     ylab = 'Y values')"
+    },
+    "r-bar": {
+      title: "Bar Chart (base R)",
+      description: "A bar chart in base R uses barplot() and a numeric vector of heights.",
+      img: "images/r-barchart.png",
+      code:
+"counts <- c(12, 18, 9, 15)\n" +
+"names(counts) <- c('A', 'B', 'C', 'D')\n\n" +
+"barplot(counts,\n" +
+"        main = 'Bar Chart Example',\n" +
+"        xlab = 'Group',\n" +
+"        ylab = 'Count')"
+    },
+    "r-hist": {
+      title: "Histogram (base R)",
+      description: "A histogram in base R uses hist() to show the distribution of a numeric vector.",
+      img: "images/r-histogram.png",
+      code:
+"temps <- c(58, 61, 63, 67, 70, 72, 75, 78, 80,\n" +
+"           82, 84, 86, 88, 90, 93, 95)\n\n" +
+"hist(temps,\n" +
+"     main = 'Histogram of Temperature',\n" +
+"     xlab = 'Temperature')"
+    },
+    "gg-scatter": {
+      title: "Scatter Plot (ggplot2)",
+      description: "This ggplot2 scatter plot uses the mtcars data set and maps weight to mpg with color by cylinders.",
+      img: "images/gg2-scatter.png",
+      code:
+"library(ggplot2)\n\n" +
+"ggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +\n" +
+"  geom_point(size = 3) +\n" +
+"  labs(title = 'MPG vs Weight',\n" +
+"       x = 'Weight (1000 lbs)',\n" +
+"       y = 'Miles per gallon',\n" +
+"       color = 'Cylinders')"
+    },
+    "gg-bar": {
+      title: "Bar Chart (ggplot2)",
+      description: "A grouped bar chart created with ggplot2 using a small summary data frame.",
+      img: "images/gg2-barchart.png",
+      code:
+"library(ggplot2)\n\n" +
+"df <- data.frame(\n" +
+"  dose = c('0.5', '0.5', '1', '1', '2', '2'),\n" +
+"  supp = c('OJ', 'VC', 'OJ', 'VC', 'OJ', 'VC'),\n" +
+"  len  = c(13.2, 7.8, 22.4, 16.5, 26.4, 25.2)\n" +
+")\n\n" +
+"ggplot(df, aes(x = dose, y = len, fill = supp)) +\n" +
+"  geom_col(position = 'dodge') +\n" +
+"  labs(title = 'Tooth Growth by Dose and Supplement',\n" +
+"       x = 'Dose',\n" +
+"       y = 'Length',\n" +
+"       fill = 'Supplement')"
+    },
+    "gg-hist": {
+      title: "Histogram (ggplot2)",
+      description: "A ggplot2 histogram of mpg from the mtcars data set, using a minimal theme.",
+      img: "images/gg2-histogram.png",
+      code:
+"library(ggplot2)\n\n" +
+"ggplot(mtcars, aes(x = mpg)) +\n" +
+"  geom_histogram(binwidth = 3,\n" +
+"                 fill = 'steelblue',\n" +
+"                 color = 'white') +\n" +
+"  labs(title = 'Distribution of MPG',\n" +
+"       x = 'Miles per gallon',\n" +
+"       y = 'Count') +\n" +
+"  theme_minimal()"
+    }
+  };
+
+  function clearOutput() {
+    title.textContent = "";
+    desc.textContent = "";
+    code.textContent = "";
+    image.style.display = "none";
+  }
+
+  select.addEventListener("change", function () {
+    var key = select.value;
+
+    if (!key) {
+      hint.textContent = "Start by choosing a plot from the menu above.";
+      clearOutput();
+      return;
+    }
+
+    var info = plots[key];
+    if (!info) {
+      hint.textContent = "Plot not found.";
+      clearOutput();
+      return;
+    }
+
+    hint.textContent = "";
+    title.textContent = info.title;
+    desc.textContent = info.description;
+    code.textContent = info.code;
+    image.src = info.img;
+    image.alt = info.title;
+    image.style.display = "block";
+  });
+});

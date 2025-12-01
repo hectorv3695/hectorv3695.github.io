@@ -6,7 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles/project.css">
   <script src="scripts/HTMLInclude.js" defer></script>
+  <script src="scripts/main.js" defer></script>
 </head>
+
 <body>
   <div data-include="components/header.html"></div>
 
@@ -14,28 +16,63 @@
     <h2>Visualizing Data in R</h2>
 
     <section>
-      <h3>Base R Plotting</h3>
-      <p>R has built-in plotting. You can make a simple plot with:</p>
-      <pre><code>x &lt;- c(1, 2, 3, 4, 5)
-y &lt;- c(3, 4, 6, 7, 9)
-plot(x, y)</code></pre>
-      <p>This draws a scatter plot.</p>
+      <h3>Why Visualize Data?</h3>
+      <p>
+        Visualizing data helps you see patterns, trends, and outliers that are
+        hard to notice in raw tables. R can make quick base plots and more
+        advanced graphics using packages like <code>ggplot2</code>.
+      </p>
     </section>
 
     <section>
-      <h3>More Advanced Plots</h3>
-      <p>Later we can add examples using <code>ggplot2</code> for professional charts.</p>
-    </section>
+      <h3>Plot Explorer</h3>
+      <p>
+        Use the menu below to choose a plot type. The example image and R code
+        will update based on your selection.
+      </p>
 
-    <!--
-      Future Development Notes:
-      - Embed example images of plots (bar, scatter)
-      - Add a collapsible "extra examples" section using jQuery UI accordion
-      - Link to external resources
-    -->
+      <p><em>Note:</em> Each example image shows the style of the plot. The exact data used in the images may differ from the sample code.</p>
+
+      <label for="plot-select" class="plot-label">Select a plot type:</label>
+      <select id="plot-select">
+        <option value="">-- Choose a Plot --</option>
+
+        <optgroup label="Base R Plots">
+          <option value="r-scatter">Scatter Plot (base R)</option>
+          <option value="r-bar">Bar Chart (base R)</option>
+          <option value="r-hist">Histogram (base R)</option>
+        </optgroup>
+
+        <optgroup label="Advanced ggplot2 Plots">
+          <option value="gg-scatter">Scatter Plot (ggplot2)</option>
+          <option value="gg-bar">Bar Chart (ggplot2)</option>
+          <option value="gg-hist">Histogram (ggplot2)</option>
+        </optgroup>
+      </select>
+
+      <div id="plot-output" class="plot-output">
+        <p id="plot-hint" class="center-text">
+          Start by choosing a plot from the menu above.
+        </p>
+
+        <h3 id="plot-title" class="plot-title" style="display:none;">Plot Title</h3>
+        <p id="plot-description"></p>
+
+        <img 
+          id="plot-image"
+          class="page-image plot-image"
+          alt="Plot example"
+          style="display:none;"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+        >
+
+        <pre><code id="plot-code"></code></pre>
+      </div>
+    </section>
   </main>
 
   <div data-include="components/footer.html"></div>
+
   <div id="accumulus-validator"></div>
   <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
 </body>
