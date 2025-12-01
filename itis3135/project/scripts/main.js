@@ -46,3 +46,24 @@ function loadSampleData() {
     </table>
   `;
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  const steps = document.querySelectorAll(".install-step");
+  const status = document.getElementById("checklist-status");
+
+  if (!steps.length || !status) return;
+
+  function updateChecklist() {
+    const checked = [...steps].filter(step => step.checked).length;
+
+    if (checked === 0) {
+      status.textContent = "No steps completed yet.";
+    } else if (checked < steps.length) {
+      status.textContent = `You've completed ${checked} of ${steps.length} steps.`;
+    } else {
+      status.textContent = "✔ All steps completed! You're ready to start using R.";
+    }
+  }
+
+  steps.forEach(step => step.addEventListener("change", updateChecklist));
+});

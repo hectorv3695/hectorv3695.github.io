@@ -45,11 +45,6 @@ body {
   gap: 14px;
 }
 
-.r-brand .r-title {
-  font-size: 1.3rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-}
 
 .r-nav {
   display: flex;
@@ -288,6 +283,29 @@ footer {
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
+
+.r-title {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.r-tagline {
+  margin: 4px 0 0;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #E0E8F5;
+}
+
+.video-box {
+  max-width: 700px;
+  margin: 0 auto 30px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+
 
 
 
