@@ -1,22 +1,3 @@
-function vectorCount() {
-  const input = document.getElementById("vector-input");
-  const out = document.getElementById("vector-result");
-  if (!input || !out) return;
-
-  const raw = input.value;
-  if (!raw.trim()) {
-    out.textContent = "Type some numbers first.";
-    return;
-  }
-
-  const parts = raw
-    .split(",")
-    .map((p) => p.trim())
-    .filter((p) => p.length > 0);
-
-  out.textContent = "You entered " + parts.length + " values.";
-}
-
 function loadSampleData() {
   const container = document.getElementById("data-container");
   if (!container) return;
@@ -131,5 +112,88 @@ document.addEventListener("DOMContentLoaded", function () {
         summary.textContent = "You got " + correctCount + " out of 3 correct.";
       }
     });
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  var mathDisplay = document.getElementById("vector-math-display");
+  var multInput = document.getElementById("vector-mult-input");
+  var multButton = document.getElementById("vector-mult-button");
+  var multResult = document.getElementById("vector-mult-result");
+
+  var appendDisplay = document.getElementById("vector-append-display");
+  var appendInput = document.getElementById("vector-input");
+  var appendButton = document.getElementById("vector-add-button");
+  var appendMessage = document.getElementById("vector-message");
+
+  if (!mathDisplay && !appendDisplay) {
+    return;
+  }
+
+  if (mathDisplay && multInput && multButton && multResult) {
+    var mathVector = [10, 20, 30];
+
+    function renderMathVector() {
+      mathDisplay.textContent = "c(" + mathVector.join(", ") + ")";
+    }
+
+    multButton.addEventListener("click", function () {
+      var rawFactor = multInput.value;
+
+      if (!rawFactor || !rawFactor.trim()) {
+        multResult.textContent = "Please enter a number to multiply by.";
+        return;
+      }
+
+      var factor = Number(rawFactor);
+
+      if (isNaN(factor)) {
+        multResult.textContent = "Please enter a valid number, like 2 or 0.5.";
+        return;
+      }
+
+      var scaled = [];
+      var i;
+      for (i = 0; i < mathVector.length; i = i + 1) {
+        scaled.push(mathVector[i] * factor);
+      }
+
+      multResult.textContent =
+        "Result: c(" +
+        scaled.join(", ") + ")";
+    });
+
+    renderMathVector();
+  }
+
+  if (appendDisplay && appendInput && appendButton && appendMessage) {
+    var appendVector = [5, 15, 25, 35];
+
+    function renderAppendVector() {
+      appendDisplay.textContent = "c(" + appendVector.join(", ") + ")";
+    }
+
+    appendButton.addEventListener("click", function () {
+      var raw = appendInput.value;
+
+      if (!raw || !raw.trim()) {
+        appendMessage.textContent = "Please type a number to append.";
+        return;
+      }
+
+      var num = Number(raw);
+
+      if (isNaN(num)) {
+        appendMessage.textContent = "Please enter a numeric value, like 50.";
+        return;
+      }
+
+      appendVector.push(num);
+      renderAppendVector();
+      appendMessage.textContent = "Appended " + num + " to the append vector.";
+      appendInput.value = "";
+    });
+
+    renderAppendVector();
   }
 });

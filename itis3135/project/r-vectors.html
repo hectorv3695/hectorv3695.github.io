@@ -30,12 +30,48 @@ words &lt;- c("a", "b", "c")</code></pre>
 nums[3]   # 30</code></pre>
     </section>
 
-    <!--
-      Future Development Notes:
-      - Add JS mini tool to let user enter a value and "append" it to a sample vector.
-      - Add explanation of vectorized math: nums * 2
-      - Add image of vector diagram if needed.
-    -->
+    <section>
+      <h3>Vectorized Math</h3>
+      <p>
+        In R, many operations are vectorized. That means a single
+        operation is applied to every element of a vector automatically.
+      </p>
+      <pre><code>nums &lt;- c(10, 20, 30)
+nums * 2   # 20  40  60</code></pre>
+      <p>
+        Here, R multiplies each element of <code>nums</code> by <code>2</code>.
+        You do not need a loop to get the new values.
+      </p>
+    </section>
+
+    <section>
+  <h3>Try It: Vectorized Math</h3>
+  <p>
+    This tool uses a sample numeric vector and multiplies every element by
+    the number you enter.
+  </p>
+
+  <p><strong>Math vector:</strong> <code id="vector-math-display"></code></p>
+
+  <label for="vector-mult-input">Multiply every element by:</label>
+  <input type="text" id="vector-mult-input">
+  <button type="button" id="vector-mult-button">Apply</button>
+
+  <p id="vector-mult-result" class="center-text"></p>
+    </section>
+
+    <section>
+  <h3>Try It: Append to a Vector</h3>
+  <p>This tool starts with a separate sample vector and lets you append a new number.</p>
+
+  <p><strong>Append vector:</strong> <code id="vector-append-display"></code></p>
+
+  <label for="vector-input">Number to append:</label>
+  <input type="text" id="vector-input">
+  <button type="button" id="vector-add-button">Append Value</button>
+
+  <p id="vector-message" class="center-text"></p>
+    </section>
   </main>
 
   <div data-include="components/footer.html"></div>
