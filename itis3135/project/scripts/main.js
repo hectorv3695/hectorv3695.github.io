@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (!steps.length || !status) return;
 
   function updateChecklist() {
-    const checked = [...steps].filter(step => step.checked).length;
+    const checked = [...steps].filter((step) => step.checked).length;
 
     if (checked === 0) {
       status.textContent = "No steps completed yet.";
@@ -65,5 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  steps.forEach(step => step.addEventListener("change", updateChecklist));
+  steps.forEach((step) => {
+    step.addEventListener("change", updateChecklist);
+  });
 });
