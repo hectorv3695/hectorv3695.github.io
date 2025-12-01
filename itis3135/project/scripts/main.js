@@ -197,3 +197,53 @@ document.addEventListener("DOMContentLoaded", function () {
     renderAppendVector();
   }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  var loadButton = document.getElementById("load-json-button");
+  var accordion = document.getElementById("json-accordion");
+  var container = document.getElementById("json-table-container");
+
+  if (!loadButton || !accordion || !container) {
+    return;
+  }
+
+  loadButton.addEventListener("click", function () {
+    fetch("scripts/sample-data.json")
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        var html = "<table border='1' cellpadding='6'><tr>";
+
+        Object.keys(data[0]).forEach(function (key) {
+          html += "<th>" + key + "</th>";
+        });
+        html += "</tr>";
+
+        data.forEach(function (row) {
+          html += "<tr>";
+          Object.values(row).forEach(function (value) {
+            html += "<td>" + value + "</td>";
+          });
+          html += "</tr>";
+        });
+
+        html += "</table>";
+
+        container.innerHTML = html;
+
+        accordion.style.display = "block";
+
+        if (window.jQuery && jQuery.fn.accordion) {
+          jQuery("#json-accordion").accordion({
+            heightStyle: "content",
+            collapsible: true
+          });
+        }
+      })
+      .catch(function () {
+        container.innerHTML = "<p>Could not load sample data.</p>";
+        accordion.style.display = "block";
+      });
+  });
+});

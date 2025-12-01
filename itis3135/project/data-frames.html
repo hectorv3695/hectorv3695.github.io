@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles/project.css">
   <script src="scripts/HTMLInclude.js" defer></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
   <script src="scripts/main.js" defer></script>
 </head>
 <body>
@@ -29,6 +32,24 @@ major = c("Stats", "CS", "Math")
 )</code></pre>
       <p>You can view the data with <code>head(people)</code> or <code>View(people)</code> inside RStudio.</p>
     </section>
+
+    <section>
+  <h3>Load Sample Data</h3>
+  <p>
+    Click the button below to load a sample JSON file and display it
+    as a data frame table, similar to how R loads external data.
+  </p>
+
+  <button type="button" id="load-json-button">Load Sample Data</button>
+
+  <div id="json-accordion" class="json-accordion" style="margin-top: 20px; display:none;">
+    <h3>Sample Data Frame</h3>
+    <div id="json-table-container">
+
+    </div>
+  </div>
+    </section>
+
 
     <!--
       Future Development Notes:
