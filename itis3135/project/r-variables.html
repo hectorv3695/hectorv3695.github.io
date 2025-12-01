@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles/project.css">
   <script src="scripts/HTMLInclude.js" defer></script>
+  <script src="scripts/main.js" defer></script>
 </head>
 <body>
   <div data-include="components/header.html"></div>
@@ -23,6 +24,7 @@
 age  &lt;- 21
 score &lt;- 98.5</code></pre>
       <p>R will remember these values while the script or session is active.</p>
+      <p>In this example, <code>"Ben"</code> is a character (text) value, <code>21</code> is a numeric value, and <code>98.5</code> is also numeric.</p>
     </section>
     <section>
       <h3>Why Variables Matter</h3>
@@ -32,11 +34,71 @@ score &lt;- 98.5</code></pre>
       </p>
     </section>
 
+    <section>
+  <h3><code>=</code> vs <code>&lt;-</code> in R</h3>
+  <p>
+    In R, both <code>=</code> and <code>&lt;-</code> can assign values to a variable in many situations:
+  </p>
+
+  <pre><code>name &lt;- "Ben"
+age = 21</code></pre>
+
+  <p>
+    However, many R style guides and RStudio defaults prefer 
+    <code>&lt;-</code> for assignments in scripts. It makes assignment stand out
+    visually and avoids confusion with other uses of <code>=</code>, such as
+    naming function arguments:
+  </p>
+
+  <pre><code>mean(x = c(1, 2, 3))   # here '=' is used to name an argument</code></pre>
+
+  <p>
+    A good habit is to use <code>&lt;-</code> when assigning to variables and 
+    reserve <code>=</code> for function arguments, especially as you write 
+    longer R scripts.
+  </p>
+    </section>
+
+
+    <section>
+  <h3>Variables Mini-Quiz</h3>
+  <p>Test your knowledge of R variables:</p>
+  <form id="var-quiz-form">
+
+    <div class="quiz-question">
+      <p>1. Which is the usual way to assign a value in R?</p>
+      <label><input type="radio" name="q1" value="a"> <code>name = "Ben"</code></label><br>
+      <label><input type="radio" name="q1" value="b"> <code>name &lt;- "Ben"</code></label><br>
+      <label><input type="radio" name="q1" value="c"> <code>"Ben" -&gt; name</code></label><br>
+      <p class="quiz-result" id="q1-result"></p>
+    </div>
+
+    <div class="quiz-question">
+      <p>2. Which is the usual assignment operator recommended for R scripts?</p>
+      <label><input type="radio" name="q1" value="a"> <code>=</code></label><br>
+      <label><input type="radio" name="q1" value="b"> <code>&lt;-</code></label><br>
+      <label><input type="radio" name="q1" value="c"> Both are allowed but <code>&lt;-</code> is the common style.</label><br>
+      <p class="quiz-result" id="q1-result"></p>
+    </div>
+
+    <div class="quiz-question">
+      <p>3. What type of value is this in R?<br><code>age &lt;- 21</code></p>
+      <label><input type="radio" name="q3" value="a"> Character</label><br>
+      <label><input type="radio" name="q3" value="b"> Logical</label><br>
+      <label><input type="radio" name="q3" value="c"> Numeric</label><br>
+      <p class="quiz-result" id="q3-result"></p>
+    </div>
+  </form>
+
+    <button type="button" id="var-quiz-button">Submit Answers</button>
+    <p id="var-quiz-summary" class="center-text"></p>
+  </section>
+
+
     <!--
       Future Development Notes:
       - Add a small JS mini-quiz: "Is this a valid R variable?"
       - Add example comparing '=' vs &lt;- and explain style preference.
-      - Add link to "Data Types" page for next step.
     -->
   </main>
 

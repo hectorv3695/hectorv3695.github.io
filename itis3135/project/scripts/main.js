@@ -1,20 +1,3 @@
-function checkVarQuiz() {
-  const choice = document.querySelector('input[name="varq"]:checked');
-  const out = document.getElementById("var-quiz-result");
-  if (!out) return;
-
-  if (!choice) {
-    out.textContent = "Please pick an answer.";
-    return;
-  }
-
-  if (choice.value === "b") {
-    out.textContent = "Correct. R uses <- to assign a value.";
-  } else {
-    out.textContent = "That is not the usual R assignment. Try again.";
-  }
-}
-
 function vectorCount() {
   const input = document.getElementById("vector-input");
   const out = document.getElementById("vector-result");
@@ -68,4 +51,41 @@ document.addEventListener("DOMContentLoaded", function () {
   steps.forEach((step) => {
     step.addEventListener("change", updateChecklist);
   });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const quizButton = document.getElementById("var-quiz-button");
+  const summary = document.getElementById("var-quiz-summary");
+
+  if (quizButton) {
+    quizButton.addEventListener("click", function () {
+
+      const answers = {
+        q1: "b",
+        q2: "c",
+        q3: "c"
+      };
+
+      let correctCount = 0;
+
+      Object.keys(answers).forEach(function (q) {
+        const choice = document.querySelector('input[name="' + q + '"]:checked');
+        const result = document.getElementById(q + "-result");
+
+        if (!choice) {
+          result.textContent = "Please select an answer.";
+          return;
+        }
+
+        if (choice.value === answers[q]) {
+          result.textContent = "Correct!";
+          correctCount = correctCount + 1;
+        } else {
+          result.textContent = "Incorrect, try reviewing the section.";
+        }
+      });
+
+      summary.textContent = "You got " + correctCount + " out of 3 correct.";
+    });
+  }
 });
